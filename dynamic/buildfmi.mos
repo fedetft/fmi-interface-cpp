@@ -1,0 +1,11 @@
+
+loadFile("FmiTest.mo");
+getErrorString();
+
+// https://build.openmodelica.org/Documentation/OpenModelica.Scripting.translateModelFMU.html
+translateModelFMU(FmiTest.Model, version="2.0", fmuType="cs");
+getErrorString();
+
+system("rm -r FmiTest.Model");
+system("unzip FmiTest.Model.fmu -d FmiTest.Model");
+system("rm FmiTest_Model_FMU.* FmiTest_Model.log FmiTest.Model.fmu");
