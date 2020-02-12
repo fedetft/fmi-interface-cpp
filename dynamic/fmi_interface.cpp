@@ -178,6 +178,18 @@ void FmiInterface::setScalarString(unsigned int variableIndex, const string& val
         throw runtime_error("FMI: failed fmi2SetString");
 }
 
+void FmiInterface::getVectorDouble(const unsigned int *indices, double *variables, int numVariables) const
+{
+    if(functions.fmi2GetReal(model,indices,numVariables,variables)!=fmi2OK)
+        throw runtime_error("FMI: failed fmi2GetReal");
+}
+    
+void FmiInterface::setVectorDouble(const unsigned int *indices, const double *variables, int numVariables)
+{
+    if(functions.fmi2SetReal(model,indices,numVariables,variables)!=fmi2OK)
+        throw runtime_error("FMI: failed fmi2SetReal");
+}
+
 FmiInterface::~FmiInterface()
 {
     if(simulationStarted)
