@@ -1,4 +1,2 @@
-dynamic/build
-dynamic/FmiTest.Model
-static/build
-static/FmiTest.Model
+build
+FmiTest.Model
