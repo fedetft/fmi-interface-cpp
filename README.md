@@ -8,14 +8,14 @@ It consists in a single class, ```FmiInterface``` with member functions to perfo
 ## Example use
 
 ```
-FmiInterface fmi("YourFmi.Model","/path/to/the/fmi",LogLevel::Normal);
+FmiInterface fmi("YourFmi.Model", "/path/to/the/fmi", LogLevel::Normal);
 
 auto inputIndex = fmi.variableIndex("input.variable");
 auto outputIndex = fmi.variableIndex("output.variable");
 
 fmi.startSimulation();
 
-for(double time=0.0;time<stop;time+=step)
+for(double time=0.0; time<stop; time+=step)
 {
     fmi.setScalarDouble(outputIndex, output);
     double input = fmi.getScalarDouble(outputIndex);
@@ -25,7 +25,7 @@ for(double time=0.0;time<stop;time+=step)
 
 ## How to build the project
 
-- Install OpenModelica (https://www.openmodelica.org) and pugixml (https://pugixml.org)
+- Install OpenModelica (follow instructions from https://www.openmodelica.org) and pugixml (with ```apt install  libpugixml-dev``` or from https://pugixml.org)
 - ```mkdir build && cd build```
 - ```cmake .. && make```
 - ```./fmitest```
