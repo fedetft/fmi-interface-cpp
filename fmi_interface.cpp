@@ -224,7 +224,7 @@ void FmiInterface::collectInformationFromXml(const std::string& modelBase)
 
 void FmiInterface::loadSharedObject(const std::string& fullSoName)
 {
-    so=dlopen(fullSoName.c_str(), RTLD_LAZY | RTLD_GLOBAL);
+    so=dlopen(fullSoName.c_str(), RTLD_LAZY | RTLD_LOCAL);
     if(so==nullptr) throw runtime_error("FMI: failed to open shared object");
     
     auto resolve=[this](const char *function)->void*
