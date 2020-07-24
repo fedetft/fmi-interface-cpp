@@ -201,8 +201,6 @@ private:
     
     void loadSharedObject(const std::string& fullSoName);
     
-    static void stepfunc(fmi2ComponentEnvironment ptr, fmi2Status s);
-    
     static void logfunc(fmi2ComponentEnvironment ptr,
                         fmi2String instance,
                         fmi2Status status,

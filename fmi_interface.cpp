@@ -44,7 +44,7 @@ FmiInterface::FmiInterface(const string& modelName,
           &FmiInterface::logfunc,  //logger
           calloc,                  //allocateMemory
           free,                    //freeMemory
-          &FmiInterface::stepfunc, //stepFinished
+          nullptr,                 //stepFinished
           this                     //componentEnvironment
       }, logLevel(logLevel)
 {
@@ -250,12 +250,6 @@ void FmiInterface::loadSharedObject(const std::string& fullSoName)
     RESOLVE(fmi2Terminate);
     RESOLVE(fmi2FreeInstance);
     #undef RESOLVE
-}
-
-void FmiInterface::stepfunc(fmi2ComponentEnvironment ptr, fmi2Status s)
-{
-//     auto obj=reinterpret_cast<FmiInterface*>(ptr);
-    throw runtime_error("FMI model called stepFinished callback. This was not expected");
 }
 
 void FmiInterface::logfunc(fmi2ComponentEnvironment ptr,
