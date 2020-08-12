@@ -1,4 +1,8 @@
 
+// To enable experimental cvode implicit solver
+// setCommandLineOptions("-d=initialization --fmiFlags=s:cvode");
+// getErrorString();
+
 loadFile("FmiTest.mo");
 getErrorString();
 
