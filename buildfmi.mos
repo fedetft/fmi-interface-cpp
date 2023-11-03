@@ -12,4 +12,4 @@ getErrorString();
 
 system("rm -r FmiTest.Model");
 system("unzip FmiTest.Model.fmu -d FmiTest.Model");
-system("rm FmiTest_Model_FMU.* FmiTest_Model.log FmiTest.Model.fmu");
+system("rm FmiTest_Model_FMU.* FmiTest_Model.log FmiTest.Model.fmu FmiTest_Model_info.json");
